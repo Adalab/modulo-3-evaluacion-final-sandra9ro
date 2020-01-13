@@ -1,26 +1,41 @@
 import React from "react";
-import logo from "../logo.svg";
-import "../styles/App.css";
 import CharacterList from "./CharacterList";
+import charactersData from "../api/charactersData";
+// import charactersData from "../api/apiData.json";
+import "../styles/App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        <h1>Rick and Morty</h1>
-      </header>
-      <main>
-        <CharacterList />
-        <ul>
-          <li>
-            <img src="" alt="imagen del personaje" />
-          </li>
-          <li>nombre del personaje</li>
-          <li>especie</li>
-        </ul>
-      </main>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      characters: [],
+    };
+  }
+
+  componentDidMount() {
+    charactersData().then(characters => {
+      this.setState({
+        characters: characters,
+      });
+    });
+  }
+
+  render() {
+    console.log(charactersData());
+
+    return (
+      <div className="App">
+        <header>
+          <h1>Rick and Morty</h1>
+        </header>
+        <main>
+          <ul>
+            <CharacterList characters={this.state.characters} />
+          </ul>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
