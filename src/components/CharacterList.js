@@ -1,7 +1,6 @@
 import React from "react";
 
 function CharacterList(props) {
-  console.log(props.characters);
   return props.characters.map(character => {
     return (
       <li key={character.id}>
