@@ -3,14 +3,14 @@ import CharacterList from "./CharacterList";
 import charactersData from "../api/charactersData";
 // import charactersData from "../api/apiData.json";
 import "../styles/App.css";
-// import Form from "./Form";
+import Form from "./Form";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       characters: [],
-      value: "",
+      search: "",
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -22,29 +22,41 @@ class App extends React.Component {
       });
     });
   }
-  handleSearch(ev) {
-    console.log(ev.target.value);
 
+  //events
+
+  handleSearch(data) {
+    // console.log(data.value);
     this.setState({
-      value: ev.target.value,
+      search: data.value,
     });
   }
 
-  render() {
-    // console.log(this.state.value);
+  // render
 
+  render() {
+    const filteredCharacters = this.state.characters.filter(character => {
+      return (
+        character.name,
+        this.state.search,
+        character.name.includes(this.state.search)
+      );
+      // return true;
+    });
+
+    // console.log(filteredCharacters);
     return (
       <div className="App">
         <header>
           <h1>Rick and Morty</h1>
         </header>
         <main>
-          {/* <Form search={this.state.value} onChange={this.state.value} /> */}
-          <form action="">
+          <Form handleSearch={this.handleSearch} />
+          {/* <form action="">
             <input type="text" onChange={this.handleSearch} />
-          </form>
+          </form> */}
           <ul>
-            <CharacterList characters={this.state.characters} />
+            <CharacterList characters={filteredCharacters} />
           </ul>
         </main>
       </div>
