@@ -1,9 +1,11 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
 import CharacterList from "./CharacterList";
 import charactersData from "../api/charactersData";
 // import charactersData from "../api/apiData.json";
 import "../styles/App.css";
 import Form from "./Form";
+import CharacterCard from "./CharacterCard";
 
 class App extends React.Component {
   constructor(props) {
@@ -32,18 +34,19 @@ class App extends React.Component {
     });
   }
 
+  // helper
+
+  filterCharacterBySearch() {
+    return this.state.characters.filter(character => {
+      return character.name
+        .toLowerCase()
+        .includes(this.state.search.toLowerCase());
+    });
+  }
+
   // render
 
   render() {
-    const filteredCharacters = this.state.characters.filter(character => {
-      return (
-        character.name,
-        this.state.search,
-        character.name.includes(this.state.search)
-      );
-      // return true;
-    });
-
     // console.log(filteredCharacters);
     return (
       <div className="App">
@@ -51,13 +54,17 @@ class App extends React.Component {
           <h1>Rick and Morty</h1>
         </header>
         <main>
-          <Form handleSearch={this.handleSearch} />
-          {/* <form action="">
-            <input type="text" onChange={this.handleSearch} />
-          </form> */}
-          <ul>
-            <CharacterList characters={filteredCharacters} />
-          </ul>
+          <Switch>
+            <Route exact path="/">
+              <Form handleSearch={this.handleSearch} />
+              <ul>
+                <CharacterList characters={this.filterCharacterBySearch()} />
+              </ul>
+            </Route>
+            <Route path="/email/:id">
+              <CharacterCard />
+            </Route>
+          </Switch>
         </main>
       </div>
     );
