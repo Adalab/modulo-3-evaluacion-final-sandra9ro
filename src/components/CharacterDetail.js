@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CharacterDetail(props) {
   return (
     <div className="card">
-      <Link to="/">
+      <Link to="/" className="link">
         <p className="back-link"> Volver</p>
       </Link>
       <div className="item">
@@ -14,7 +14,7 @@ function CharacterDetail(props) {
           alt="personaje"
           className="item__photo"
         />
-        <ul className="item__list">
+        <ul className="item__list list-item">
           <li>Status: {props.chosenCharacter.status} </li>
           <li>Species: {props.chosenCharacter.species}</li>
           <li>Origin: {props.chosenCharacter.origin.name}</li>

@@ -70,7 +70,11 @@ class App extends React.Component {
         <main className="main">
           <Switch>
             <Route exact path="/">
-              <Form handleSearch={this.handleSearch} className="form" />
+              <Form
+                handleSearch={this.handleSearch}
+                className="form"
+                state={this.state}
+              />
               <ul className="characters-list">
                 <CharacterList characters={this.filterCharacterBySearch()} />
               </ul>

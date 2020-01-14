@@ -5,7 +5,11 @@ function CharacterCard(props) {
   return props.characters.map(character => {
     return (
       <li key={character.id} className="list__card">
-        <Link to={`/character/${character.id}`} id={character.id}>
+        <Link
+          to={`/character/${character.id}`}
+          id={character.id}
+          className="link"
+        >
           <ul className="card">
             <li>
               <img

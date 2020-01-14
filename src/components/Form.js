@@ -1,6 +1,8 @@
 import React from "react";
 
 function Form(props) {
+  console.log(props.keepSearch);
+
   const handleSearch = ev => {
     props.handleSearch({
       value: ev.target.value,
@@ -15,6 +17,7 @@ function Form(props) {
         type="text"
         id="search-field"
         className="form__input"
+        value={props.state.search}
       />
     </form>
   );
