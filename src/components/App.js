@@ -64,14 +64,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Rick and Morty</h1>
+        <header className="header">
+          <h1 className="header__title">Rick and Morty</h1>
         </header>
-        <main>
+        <main className="main">
           <Switch>
             <Route exact path="/">
-              <Form handleSearch={this.handleSearch} />
-              <ul>
+              <Form handleSearch={this.handleSearch} className="form" />
+              <ul className="characters-list">
                 <CharacterList characters={this.filterCharacterBySearch()} />
               </ul>
             </Route>

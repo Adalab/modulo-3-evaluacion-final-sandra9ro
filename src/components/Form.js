@@ -8,8 +8,14 @@ function Form(props) {
   };
 
   return (
-    <form action="">
-      <input type="text" onChange={handleSearch} />
+    <form className="form">
+      <label htmlFor="search-field"></label>
+      <input
+        onChange={handleSearch}
+        type="text"
+        id="search-field"
+        className="form__input"
+      />
     </form>
   );
 }
