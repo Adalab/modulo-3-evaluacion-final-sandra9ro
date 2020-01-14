@@ -5,6 +5,7 @@ body {
     sans-serif;
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
+  background-color: rgb(48, 59, 87);
 }
 
 .link {
@@ -13,4 +14,63 @@ body {
 
 .list-style {
   list-style: none;
+}
+
+/*  */
+
+.app {
+  border: 1px solid black;
+}
+
+.header {
+  border: 1px red solid;
+}
+.main {
+  border: 1px red solid;
+}
+.list {
+  border: 1px green solid;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-card {
+  border: 1px white solid;
+}
+.card-photo {
+  border: 1px red solid;
+}
+.card-data {
+  border: 1px red solid;
+}
+.card-name {
+  border: 1px yellow solid;
+}
+.card-species {
+  border: 1px white solid;
+}
+.form {
+  border: 1px white solid;
+}
+.form-label {
+  border: 1px white solid;
+  color: white;
+}
+.form-input {
+  border: 1px red solid;
+}
+.detail {
+  border: 1px green solid;
+}
+.back-link {
+  border: 1px green solid;
+  color: rgb(2, 2, 48);
+}
+.detail-name {
+  border: 1px green solid;
+}
+.detail-photo {
+  border: 1px red solid;
+}
+.detail-list {
+  border: 1px rgb(6, 211, 166) solid;
 }

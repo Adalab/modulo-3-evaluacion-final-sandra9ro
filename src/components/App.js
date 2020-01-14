@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import logo from "../images/logo.png";
 import CharacterList from "./CharacterList";
 import charactersData from "../api/charactersData";
-// import charactersData from "../api/apiData.json";
 import "../styles/App.css";
 import Form from "./Form";
 import CharacterDetail from "./CharacterDetail";
@@ -63,21 +63,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <header className="header">
-          <h1 className="header__title">Rick and Morty</h1>
+          <img src={logo} alt="R&M logo" />
         </header>
         <main className="main">
           <Switch>
             <Route exact path="/">
-              <Form
-                handleSearch={this.handleSearch}
-                className="form"
-                state={this.state}
-              />
-              <ul className="characters-list">
-                <CharacterList characters={this.filterCharacterBySearch()} />
-              </ul>
+              <Form handleSearch={this.handleSearch} state={this.state} />
+
+              <CharacterList characters={this.filterCharacterBySearch()} />
             </Route>
             <Route
               path="/character/:id"

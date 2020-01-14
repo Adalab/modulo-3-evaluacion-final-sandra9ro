@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function CharacterDetail(props) {
   return (
-    <div className="card">
+    <div className="detail">
       <Link to="/" className="link">
         <p className="back-link"> Volver</p>
       </Link>
       <div className="item">
-        <h3 className="item__namegit ">{props.chosenCharacter.name}</h3>
+        <h3 className="detail-name ">{props.chosenCharacter.name}</h3>
         <img
           src={props.chosenCharacter.image}
           alt="personaje"
-          className="item__photo"
+          className="detail-photo"
         />
-        <ul className="item__list list-item list-style">
+        <ul className=" detail-list list-style">
           <li>Status: {props.chosenCharacter.status} </li>
           <li>Species: {props.chosenCharacter.species}</li>
           <li>Origin: {props.chosenCharacter.origin.name}</li>
@@ -24,5 +25,9 @@ function CharacterDetail(props) {
     </div>
   );
 }
+
+CharacterDetail.propTypes = {
+  chosenCharacter: PropTypes.object,
+};
 
 export default CharacterDetail;

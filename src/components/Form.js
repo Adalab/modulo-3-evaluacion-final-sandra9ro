@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Form(props) {
   const handleSearch = ev => {
@@ -9,16 +10,23 @@ function Form(props) {
 
   return (
     <form className="form">
-      <label htmlFor="search-field" className="form__label"></label>
+      <label htmlFor="search-field" className="form-label">
+        Encuentra a tu personaje favorito
+      </label>
       <input
         onChange={handleSearch}
         type="text"
         id="search-field"
-        className="form__input"
+        className="form-input"
         value={props.state.search}
       />
     </form>
   );
 }
+
+Form.propTypes = {
+  handleSearch: PropTypes.func,
+  state: PropTypes.object,
+};
 
 export default Form;
