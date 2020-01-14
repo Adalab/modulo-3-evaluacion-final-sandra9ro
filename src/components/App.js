@@ -5,7 +5,7 @@ import charactersData from "../api/charactersData";
 // import charactersData from "../api/apiData.json";
 import "../styles/App.css";
 import Form from "./Form";
-import CharacterCard from "./CharacterCard";
+import CharacterDetail from "./CharacterDetail";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,11 +13,11 @@ class App extends React.Component {
     this.state = {
       characters: [],
       search: "",
-      chosenCharacterId: "",
+      // chosenCharacterId: "",
     };
     this.handleSearch = this.handleSearch.bind(this);
-    this.renderCharacterCard = this.renderCharacterCard.bind(this);
-    this.handleChosenCharacter = this.handleChosenCharacter.bind(this);
+    this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
+    // this.handleChosenCharacter = this.handleChosenCharacter.bind(this);
   }
 
   componentDidMount() {
@@ -37,13 +37,13 @@ class App extends React.Component {
     });
   }
 
-  handleChosenCharacter(data) {
-    // console.log(data);
+  // handleChosenCharacter(data) {
+  //   // console.log(data);
 
-    this.setState({
-      chosenCharacterId: data.chosenCharacterId,
-    });
-  }
+  //   this.setState({
+  //     chosenCharacterId: data.chosenCharacterId,
+  //   });
+  // }
 
   // helper
 
@@ -57,19 +57,32 @@ class App extends React.Component {
 
   // render
 
-  renderCharacterCard(props) {
-    console.log(this.state.chosenCharacterId);
+  renderCharacterDetail(props) {
+    // console.log(this.state.chosenCharacterId);
     console.log(this.state, props.match.params.id);
 
-    const chosenId = parseInt(this.state.chosenCharacterId);
-    const characterId = this.state.characters.find(
-      character => character.id === chosenId,
+    const route = parseInt(props.match.params.id);
+    const chosenCharacter = this.state.characters.find(
+      character => character.id === route,
     );
-    if (characterId !== undefined) {
+    if (chosenCharacter !== undefined) {
       return (
-        <CharacterCard character={this.state} chosenCharacter={characterId} />
+        <CharacterDetail
+          character={this.state}
+          chosenCharacter={chosenCharacter}
+        />
       );
     }
+
+    // const chosenId = parseInt(this.state.chosenCharacterId);
+    // const characterId = this.state.characters.find(
+    //   character => character.id === chosenId,
+    // );
+    // if (characterId !== undefined) {
+    //   return (
+    //     <CharacterDetail character={this.state} chosenCharacter={characterId} />
+    //   );
+    // }
   }
 
   render() {
@@ -83,16 +96,21 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               <Form handleSearch={this.handleSearch} />
+              {/* <CharacterList
+                characters={this.filterCharacterBySearch()}
+                handleChosenCharacter={this.handleChosenCharacter}
+              /> */}
+
               <ul>
                 <CharacterList
                   characters={this.filterCharacterBySearch()}
-                  handleChosenCharacter={this.handleChosenCharacter}
+                  // handleChosenCharacter={this.handleChosenCharacter}
                 />
               </ul>
             </Route>
             <Route
               path="/character/:id"
-              render={this.renderCharacterCard}
+              render={this.renderCharacterDetail}
             ></Route>
           </Switch>
         </main>
