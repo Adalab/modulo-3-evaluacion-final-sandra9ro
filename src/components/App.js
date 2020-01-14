@@ -65,7 +65,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="header">
-          <img src={logo} alt="R&M logo" />
+          <img src={logo} alt="RandM logo" />
         </header>
         <main className="main">
           <Switch>

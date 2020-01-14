@@ -6,12 +6,17 @@ function Form(props) {
     props.handleSearch({
       value: ev.target.value,
     });
+    ev.preventDefault();
+  };
+
+  const notSubmit = ev => {
+    ev.preventDefault();
   };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={notSubmit}>
       <label htmlFor="search-field" className="form-label">
-        Encuentra a tu personaje favorito
+        Busca a tu personaje favorito:
       </label>
       <input
         onChange={handleSearch}
