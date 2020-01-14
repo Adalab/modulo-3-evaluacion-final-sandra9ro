@@ -13,11 +13,9 @@ class App extends React.Component {
     this.state = {
       characters: [],
       search: "",
-      // chosenCharacterId: "",
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
-    // this.handleChosenCharacter = this.handleChosenCharacter.bind(this);
   }
 
   componentDidMount() {
@@ -31,19 +29,10 @@ class App extends React.Component {
   //events
 
   handleSearch(data) {
-    // console.log(data.value);
     this.setState({
       search: data.value,
     });
   }
-
-  // handleChosenCharacter(data) {
-  //   // console.log(data);
-
-  //   this.setState({
-  //     chosenCharacterId: data.chosenCharacterId,
-  //   });
-  // }
 
   // helper
 
@@ -58,9 +47,6 @@ class App extends React.Component {
   // render
 
   renderCharacterDetail(props) {
-    // console.log(this.state.chosenCharacterId);
-    console.log(this.state, props.match.params.id);
-
     const route = parseInt(props.match.params.id);
     const chosenCharacter = this.state.characters.find(
       character => character.id === route,
@@ -73,20 +59,9 @@ class App extends React.Component {
         />
       );
     }
-
-    // const chosenId = parseInt(this.state.chosenCharacterId);
-    // const characterId = this.state.characters.find(
-    //   character => character.id === chosenId,
-    // );
-    // if (characterId !== undefined) {
-    //   return (
-    //     <CharacterDetail character={this.state} chosenCharacter={characterId} />
-    //   );
-    // }
   }
 
   render() {
-    // console.log(filteredCharacters);
     return (
       <div className="App">
         <header>
@@ -96,16 +71,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/">
               <Form handleSearch={this.handleSearch} />
-              {/* <CharacterList
-                characters={this.filterCharacterBySearch()}
-                handleChosenCharacter={this.handleChosenCharacter}
-              /> */}
-
               <ul>
-                <CharacterList
-                  characters={this.filterCharacterBySearch()}
-                  // handleChosenCharacter={this.handleChosenCharacter}
-                />
+                <CharacterList characters={this.filterCharacterBySearch()} />
               </ul>
             </Route>
             <Route

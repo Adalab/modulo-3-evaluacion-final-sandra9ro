@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function CharacterDetail(props) {
-  console.log(props.chosenCharacter);
   return (
     <div className="card">
       <Link to="/">
@@ -20,9 +19,6 @@ function CharacterDetail(props) {
       </div>
     </div>
   );
-  // } else {
-  //   return <p> Volver</p>;
-  // }
 }
 
 export default CharacterDetail;
