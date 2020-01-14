@@ -14,7 +14,7 @@ function CharacterDetail(props) {
           alt="personaje"
           className="item__photo"
         />
-        <ul className="item__list list-item">
+        <ul className="item__list list-item list-style">
           <li>Status: {props.chosenCharacter.status} </li>
           <li>Species: {props.chosenCharacter.species}</li>
           <li>Origin: {props.chosenCharacter.origin.name}</li>

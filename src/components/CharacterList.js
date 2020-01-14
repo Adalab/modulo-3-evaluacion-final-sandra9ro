@@ -5,9 +5,8 @@ import CharacterCard from "./CharacterCard";
 // COMPROBAR QUE EL LINK SE AJUSTA AL MAQUETADO SI NO, DEJARLO SÓLO PARA LA FOTO
 
 function CharacterList(props) {
-  console.log(props);
   return (
-    <ul className="list">
+    <ul className="list list-style">
       <CharacterCard characters={props.characters} />
     </ul>
   );

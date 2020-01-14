@@ -10,7 +10,7 @@ function CharacterCard(props) {
           id={character.id}
           className="link"
         >
-          <ul className="card">
+          <ul className="card list-style">
             <li>
               <img
                 src={character.image}
