@@ -5,12 +5,16 @@ function CharacterDetail(props) {
   return (
     <div className="card">
       <Link to="/">
-        <p> Volver</p>
+        <p className="back-link"> Volver</p>
       </Link>
-      <div className="card-item">
-        <h3>{props.chosenCharacter.name}</h3>
-        <img src={props.chosenCharacter.image} alt="personaje" />
-        <ul>
+      <div className="item">
+        <h3 className="item__namegit ">{props.chosenCharacter.name}</h3>
+        <img
+          src={props.chosenCharacter.image}
+          alt="personaje"
+          className="item__photo"
+        />
+        <ul className="item__list">
           <li>Status: {props.chosenCharacter.status} </li>
           <li>Species: {props.chosenCharacter.species}</li>
           <li>Origin: {props.chosenCharacter.origin.name}</li>

@@ -7,7 +7,7 @@ import CharacterCard from "./CharacterCard";
 function CharacterList(props) {
   console.log(props);
   return (
-    <ul>
+    <ul className="list">
       <CharacterCard characters={props.characters} />
     </ul>
   );

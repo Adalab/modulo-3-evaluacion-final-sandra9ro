@@ -9,7 +9,7 @@ function Form(props) {
 
   return (
     <form className="form">
-      <label htmlFor="search-field"></label>
+      <label htmlFor="search-field" className="form__label"></label>
       <input
         onChange={handleSearch}
         type="text"
