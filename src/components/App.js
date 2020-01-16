@@ -13,9 +13,11 @@ class App extends React.Component {
     this.state = {
       characters: [],
       search: "",
+      episodes: "",
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
+    this.handleEpisodes = this.handleEpisodes.bind(this);
   }
 
   componentDidMount() {
@@ -34,14 +36,25 @@ class App extends React.Component {
     });
   }
 
+  handleEpisodes(data) {
+    this.setState({
+      episodes: data.episodes,
+    });
+    console.log(data.episodes);
+  }
+
   // helper
 
   filterCharacterBySearch() {
-    return this.state.characters.filter(character => {
-      return character.name
-        .toLowerCase()
-        .includes(this.state.search.toLowerCase());
-    });
+    return this.state.characters
+      .filter(character =>
+        character.name.toLowerCase().includes(this.state.search.toLowerCase()),
+      )
+      .filter(
+        character =>
+          parseInt(character.episode.length) ===
+            parseInt(this.state.episodes) || "" === this.state.episodes,
+      );
   }
 
   // render
@@ -62,6 +75,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div className="app">
         <header className="header">
@@ -70,7 +85,11 @@ class App extends React.Component {
         <main className="main">
           <Switch>
             <Route exact path="/">
-              <Form handleSearch={this.handleSearch} state={this.state} />
+              <Form
+                handleSearch={this.handleSearch}
+                state={this.state}
+                handleEpisodes={this.handleEpisodes}
+              />
 
               <CharacterList characters={this.filterCharacterBySearch()} />
             </Route>

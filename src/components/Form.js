@@ -9,6 +9,14 @@ function Form(props) {
     ev.preventDefault();
   };
 
+  const handleEpisodes = ev => {
+    console.log(props);
+
+    props.handleEpisodes({
+      episodes: ev.target.value,
+    });
+  };
+
   const notSubmit = ev => {
     ev.preventDefault();
   };
@@ -25,6 +33,9 @@ function Form(props) {
         className="form-input"
         value={props.state.search}
       />
+
+      <label htmlFor="episodes">Número de episodios</label>
+      <input type="text" id="episodes" onChange={handleEpisodes} />
     </form>
   );
 }
