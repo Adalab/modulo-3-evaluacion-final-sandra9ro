@@ -4,7 +4,7 @@ import logo from "../images/logo.png";
 import CharacterList from "./CharacterList";
 import charactersData from "../api/charactersData";
 import "../styles/App.css";
-import Form from "./Form";
+import Form from "../components/Form";
 import CharacterDetail from "./CharacterDetail";
 
 class App extends React.Component {
