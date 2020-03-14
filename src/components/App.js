@@ -4,7 +4,7 @@ import logo from "../images/logo.png";
 import CharacterList from "./CharacterList";
 import charactersData from "../api/charactersData";
 import "../styles/App.css";
-import Form from "../components/Form";
+import Form from "./Form";
 import CharacterDetail from "./CharacterDetail";
 
 class App extends React.Component {
@@ -31,6 +31,8 @@ class App extends React.Component {
   //events
 
   handleSearch(data) {
+    console.log(data);
+    
     this.setState({
       search: data.value,
     });
