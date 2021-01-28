@@ -6,6 +6,7 @@ import charactersData from "../api/charactersData";
 import "../styles/App.css";
 import Form from "./Form";
 import CharacterDetail from "./CharacterDetail";
+//PROBANDO
 
 class App extends React.Component {
   constructor(props) {

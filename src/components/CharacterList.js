@@ -4,6 +4,7 @@ import CharacterCard from "./CharacterCard";
 import PropTypes from "prop-types";
 
 // COMPROBAR QUE EL LINK SE AJUSTA AL MAQUETADO SI NO, DEJARLO SÓLO PARA LA FOTO
+//PROBANDO
 
 function CharacterList(props) {
   return (
